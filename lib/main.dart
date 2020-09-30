@@ -1,3 +1,4 @@
+import 'package:first_application/secondPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,33 +37,65 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.red[300],
+        child: Icon(Icons.arrow_forward),
+        onPressed: ()
+        {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
+        },
       ),
       body: Center(
         child: Container(
           width: 300,
           height: 300,
+          padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.blue,
-            border: Border.all(width: 3.0, color: Colors.black),
-            borderRadius: BorderRadius.circular(50.0),
+            border: Border.all(width: 2.0, color: Colors.yellow),
+            borderRadius: BorderRadius.circular(20.0),
               boxShadow: [new BoxShadow(
                 color: Colors.black,
-                blurRadius: 20.0,
+                blurRadius: 10.0,
               ),]
           ),
-          child: Center(
-              child: Text(
+          child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text(
                 'Container is in centre',
                 style: TextStyle(
                     color: Colors.red[900],
-                    fontSize: 25,
-                  fontWeight: FontWeight.bold,
+                    fontSize: 30,
                     fontStyle: FontStyle.italic
                 ),
-              )
+              ),
+              SizedBox(height: 30,),
+              Text(
+                'Container is in centre',
+                style: TextStyle(
+                    color: Colors.red[900],
+                    fontSize: 30,
+                    fontStyle: FontStyle.italic
+                ),
+              ),
+              SizedBox(height: 30,),
+              Container(
+                color: Colors.red,
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  'Container is in centre',
+                  style: TextStyle(
+                      color: Colors.red[900],
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic
+                  ),
+                ),
+              ),
+            ],
+          ),
           ),
         ),
       ),
     );
   }
 }
+
